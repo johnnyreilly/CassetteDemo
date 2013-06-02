@@ -68,7 +68,7 @@ namespace CassetteDemo
                 );
 
             // Create a per file bundle for all areas / views
-            //bundles.AddPerIndividualFile<ScriptBundle>("~/Scripts/Views");
+            bundles.AddPerIndividualFile<ScriptBundle>("~/Scripts/Views");
         }
     }
 }

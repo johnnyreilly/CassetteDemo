@@ -39,17 +39,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin">
-      <HintPath>..\packages\AjaxMin.4.60.4609.17023\lib\net20\AjaxMin.dll</HintPath>
+    <Reference Include="AjaxMin, Version=4.84.4790.14405, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxMin.4.84.4790.14417\lib\net40\AjaxMin.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette">
-      <HintPath>..\packages\Cassette.2.0.0\lib\net40-client\Cassette.dll</HintPath>
+    <Reference Include="Cassette, Version=2.2.1.13705, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cassette.2.2.1\lib\net40-client\Cassette.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette.Aspnet">
-      <HintPath>..\packages\Cassette.Aspnet.2.0.0\lib\net40\Cassette.Aspnet.dll</HintPath>
+    <Reference Include="Cassette.Aspnet, Version=2.2.1.13706, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cassette.Aspnet.2.2.1\lib\net40\Cassette.Aspnet.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette.Views">
-      <HintPath>..\packages\Cassette.Views.2.0.0\lib\net40\Cassette.Views.dll</HintPath>
+    <Reference Include="Cassette.Views, Version=2.2.1.13706, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cassette.Views.2.2.1\lib\net40\Cassette.Views.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -203,7 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InsertIntoPipelineParseJavaScriptNotTypeScriptReferences.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="ParseJavaScriptNotTypeScriptReferences.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -274,7 +280,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Views\Home\Index.js" />
+    <Content Include="Scripts\typings\jquery\jquery.d.ts" />
+    <Content Include="Scripts\Views\Home\Index.js.map">
+      <DependentUpon>Index.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="Scripts\Views\Home\Index.ts" />
+    <Content Include="Scripts\Views\Home\Index.js">
+      <DependentUpon>Index.ts</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -319,7 +332,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
